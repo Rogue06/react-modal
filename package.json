@@ -1,6 +1,6 @@
 {
-  "name": "@Rogue06/react-modal",
-  "version": "1.0.0",
+  "name": "@rogue06/react-modal",
+  "version": "1.0.1",
   "description": "Un composant Modal simple et personnalisable pour React",
   "main": "dist/index.js",
   "files": [
@@ -44,5 +44,7 @@
   "bugs": {
     "url": "https://github.com/Rogue06/react-modal/issues"
   },
-  "homepage": "https://github.com/Rogue06/react-modal"
+  "homepage": "https://github.com/Rogue06/react-modal",
+  "_note":"Si publication sur npmjs.org, il faudra changer ce publishConfig, sinon ça publiera sur GitHub Packages"
+
 }
