@@ -1,5 +1,5 @@
 {
-  "name": "@rogue06/react-modal",
+  "name": "@Rogue06/react-modal",
   "version": "1.0.0",
   "description": "Un composant Modal simple et personnalisable pour React",
   "main": "dist/index.js",
