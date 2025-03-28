@@ -5,26 +5,10 @@ module.exports = {
   output: {
     path: path.resolve(__dirname, "dist"),
     filename: "index.js",
-    libraryTarget: "umd", // Format universel compatible avec différents environnements
+    libraryTarget: "umd",
     library: "ReactModal",
     umdNamedDefine: true,
     globalObject: "this",
-    clean: true, // Nettoie le dossier dist avant chaque build
-  },
-  externals: {
-    // Ne pas inclure React dans le bundle final (fourni par l'application hôte)
-    react: {
-      commonjs: "react",
-      commonjs2: "react",
-      amd: "React",
-      root: "React",
-    },
-    "react-dom": {
-      commonjs: "react-dom",
-      commonjs2: "react-dom",
-      amd: "ReactDOM",
-      root: "ReactDOM",
-    },
   },
   module: {
     rules: [
@@ -46,5 +30,19 @@ module.exports = {
   },
   resolve: {
     extensions: [".js", ".jsx"],
+  },
+  externals: {
+    react: {
+      commonjs: "react",
+      commonjs2: "react",
+      amd: "React",
+      root: "React",
+    },
+    "react-dom": {
+      commonjs: "react-dom",
+      commonjs2: "react-dom",
+      amd: "ReactDOM",
+      root: "ReactDOM",
+    },
   },
 };
