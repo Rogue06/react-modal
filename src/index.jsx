@@ -1,5 +1,5 @@
-import React, { useEffect } from 'react';
-import './Modal.css';
+import React, { useEffect } from "react";
+import "./Modal.css";
 
 /**
  * Composant Modal
@@ -13,34 +13,34 @@ const Modal = ({ isOpen, onClose, children }) => {
   // Empêche le défilement du body quand la modal est ouverte
   useEffect(() => {
     if (isOpen) {
-      document.body.style.overflow = 'hidden';
+      document.body.style.overflow = "hidden";
     } else {
-      document.body.style.overflow = 'auto';
+      document.body.style.overflow = "auto";
     }
 
     // Nettoyage lors du démontage du composant
     return () => {
-      document.body.style.overflow = 'auto';
+      document.body.style.overflow = "auto";
     };
   }, [isOpen]);
 
   // Gestion de la touche Echap pour fermer la modal
   useEffect(() => {
     const handleEscape = (e) => {
-      if (e.key === 'Escape' && isOpen) {
+      if (e.key === "Escape" && isOpen) {
         onClose();
       }
     };
 
-    window.addEventListener('keydown', handleEscape);
+    window.addEventListener("keydown", handleEscape);
     return () => {
-      window.removeEventListener('keydown', handleEscape);
+      window.removeEventListener("keydown", handleEscape);
     };
   }, [isOpen, onClose]);
 
   // Ferme la modal si on clique à l'extérieur
   const handleOutsideClick = (e) => {
-    if (e.target.classList.contains('modal-overlay')) {
+    if (e.target.classList.contains("modal-overlay")) {
       onClose();
     }
   };
@@ -49,8 +49,12 @@ const Modal = ({ isOpen, onClose, children }) => {
 
   return (
     <div className="modal-overlay" onClick={handleOutsideClick}>
-      <div className="modal-content">
-        <button className="modal-close" onClick={onClose}>
+      <div className="modal-content" role="dialog" aria-modal="true">
+        <button
+          className="modal-close"
+          onClick={onClose}
+          aria-label="Fermer la fenêtre"
+        >
           &times;
         </button>
         <div className="modal-body">{children}</div>
@@ -59,4 +63,4 @@ const Modal = ({ isOpen, onClose, children }) => {
   );
 };
 
-export default Modal; 
+export default Modal;
